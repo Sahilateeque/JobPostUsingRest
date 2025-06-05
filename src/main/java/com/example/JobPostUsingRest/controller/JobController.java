@@ -30,6 +30,11 @@ public class JobController {
         return jobService.search(keyword);
     }
 
+    @GetMapping("JobPosts/experience/{experience}")
+    public List<JobPost> searchByReqExperience(@PathVariable("experience") int experience){
+        return jobService.searchByExp(experience);
+    }
+
     @PostMapping("/Job/add")
     public JobPost addJob(@RequestBody JobPost jobPost){
         jobService.addJob(jobPost);
